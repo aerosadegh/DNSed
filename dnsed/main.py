@@ -9,6 +9,8 @@ from ui import DNSManagerUI, resource_path
 
 def show_tool():
     ui.show()
+    ui.raise_()
+    ui.activateWindow()
 
 
 def on_tray_icon_activated(reason):

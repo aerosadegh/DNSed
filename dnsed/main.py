@@ -9,6 +9,8 @@ from ui import DNSManagerUI, resource_path
 
 def show_tool():
     ui.show()
+    ui.raise_()
+    ui.activateWindow()
 
 
 def on_tray_icon_activated(reason):
@@ -70,6 +72,13 @@ QComboBox {
 QComboBox QAbstractItemView {
     background-color: #555;
     color: #fff;
+}
+QMenu {
+    background-color: #555;
+    color: #fff;
+}
+QMenu::item:selected {
+    background-color: #777;
 }
 
     """

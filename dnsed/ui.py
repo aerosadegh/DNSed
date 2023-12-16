@@ -49,11 +49,7 @@ class DNSManagerUI(QWidget):
         self.layout.addWidget(self.clear_button)
 
         self.status_label = QLabel()
-        self.status_label.setAlignment(Qt.AlignCenter)  # Center the text
+        self.status_label.setAlignment(Qt.AlignCenter)  
         self.layout.addWidget(self.status_label)
-
-        # self.close_button = QPushButton()
-        # self.close_button.setIcon(QIcon(resource_path("assets/close_icon.png")))
-        # self.layout.addWidget(self.close_button)
 
         self.setLayout(self.layout)

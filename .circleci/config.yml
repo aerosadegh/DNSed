@@ -1,0 +1,36 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/windows/nanoserver:1809
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Python and dependencies
+          command: |
+            choco install -y python3
+            refreshenv
+            pip install pyinstaller
+
+      - run:
+          name: Build .exe
+          command: |
+            pyinstaller --noconfirm --onefile --windowed --icon ".\dnsed\assets\app.ico" --name "DNSed" --add-data ".\dnsed\assets;assets/"  ".\dnsed\main.py"
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - dev

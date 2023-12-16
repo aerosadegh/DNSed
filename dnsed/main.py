@@ -73,6 +73,13 @@ QComboBox QAbstractItemView {
     background-color: #555;
     color: #fff;
 }
+QMenu {
+    background-color: #555;
+    color: #fff;
+}
+QMenu::item:selected {
+    background-color: #777;
+}
 
     """
     )
